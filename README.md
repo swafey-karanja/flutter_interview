@@ -12,7 +12,7 @@ Your objective is to:
 - Ensure a clean and organized folder structure.
 - Focus on delivering an intuitive and polished user interface.
 
-## 📂Assets to be used
+## 📂Screenshots for reference
 
 ![home_page 1](images/home_page_2.png)![home_page 2](images/home_page.png)![bottom sheet](images/modal_sheet.png)
 

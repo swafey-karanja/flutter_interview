@@ -79,7 +79,7 @@ class _DashboardContent extends StatelessWidget {
                       child: Text('Send Again', style: AppStyles.sectionTitleStyle),
                     ),
                     const SizedBox(height: 20),
-                    TransactionListWidget(),
+                    const TransactionListWidget(),
                     const SizedBox(height: 10),
                     // Various Buttons Section
                     const Padding(
@@ -138,8 +138,8 @@ class _DashboardContent extends StatelessWidget {
       builder: (context, constraints) {
         final size = MediaQuery.of(context).size;
         return Container(
-          padding: EdgeInsets.all(size.width * 0.03),
-          margin: EdgeInsets.all(size.width * 0.02),
+          padding: EdgeInsets.all(size.width * 0.028),
+          margin: EdgeInsets.all(size.width * 0.015),
           decoration: BoxDecoration(
             color: Colors.white, // Background color of the container
             borderRadius: BorderRadius.circular(12.0), // Border radius for rounded corners
@@ -151,11 +151,10 @@ class _DashboardContent extends StatelessWidget {
               ),
             ],
           ),
-          child: SingleChildScrollView(
-            child: icon_grid.buildIconWithLabel(icon, label, iconColor, size),
-          ),
+          // Removed SingleChildScrollView to prevent scrolling
+          child: icon_grid.buildIconWithLabel(icon, label, iconColor, size),
         );
-      }  
+      },
     );
   }
 

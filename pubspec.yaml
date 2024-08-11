@@ -54,7 +54,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
+  
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -90,3 +90,10 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  assets:
+    - images/classic-card.png
+    - images/platinum-card.png
+    - images/infinite-card.webp
+    - images/jack_reacher.jpg
+    - images/uchiha_itachi.jpg
+    - images/light_yagami.jpg

@@ -21,9 +21,9 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
       children: [
         CarouselSlider(
           items: [
-            _buildCarouselItem('https://www.visa.co.in/dam/VCOM/regional/ap/india/global-elements/images/in-visa-classic-card-498x280.png', size),
-            _buildCarouselItem('https://www.visa.co.in/dam/VCOM/regional/ap/india/global-elements/images/in-visa-platinum-card-498x280.png', size),
-            _buildCarouselItem('https://www.visa.co.in/dam/VCOM/regional/ap/india/global-elements/images/in-visa-infinite-card-498x280.png', size),
+            _buildCarouselItem('images/classic-card.png', size),
+            _buildCarouselItem('images/platinum-card.png', size),
+            _buildCarouselItem('images/infinite-card.webp', size),
           ],
           options: CarouselOptions(
             aspectRatio: 16 / 9,
@@ -44,11 +44,11 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
     );
   }
 
-  Widget _buildCarouselItem(String imageUrl, Size size) {
+  Widget _buildCarouselItem(String assetPath, Size size) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(size.width * 0.04),
-      child: Image.network(
-        imageUrl,
+      child: Image.asset(
+        assetPath,
         fit: BoxFit.cover,
         width: double.infinity,
       ),

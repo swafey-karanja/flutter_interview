@@ -18,28 +18,42 @@ class IconGridWidget extends StatelessWidget {
   }
 }
 
-Widget buildIconWithLabel(IconData icon, String label, Color iconColor, Size size) {
-  return Column(
-    mainAxisSize: MainAxisSize.min,
-    children: [
-      // Circular container with dark background
-      Container(
-        padding: EdgeInsets.all(size.width * 0.03),
-        decoration: BoxDecoration(
-          color: const Color(0xDDDAD3D3), // Darker background within the circle
-          shape: BoxShape.circle,
-          border: Border.all(
-            color: const Color(0xDDECE6E6), // Border color
-            width: 2.0, // Border width
+  Widget buildIconWithLabel(IconData icon, String label, Color iconColor, Size size) {
+    return SizedBox(
+      width: size.width * 0.2, 
+      height: size.height * 0.1, 
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: size.width * 0.12, 
+            height: size.width * 0.12, 
+            decoration: BoxDecoration(
+              color: const Color(0xDDDAD3D3),
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: const Color(0xDDECE6E6),
+                width: 2.0,
+              ),
+            ),
+            child: Center(
+              child: Icon(icon, size: size.width * 0.06, color: iconColor),
+            ),
           ),
-        ),
-        child: Icon(icon, size: size.width * 0.07, color: iconColor),
+          SizedBox(height: size.height * 0.01),
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: size.width * 0.028,
+              color: Colors.grey,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ],
       ),
-      SizedBox(height: size.height * 0.01), // Space between the circle and the label
-      Text(
-        label,
-        style: TextStyle(fontSize: size.width * 0.032, color: Colors.grey, fontWeight: FontWeight.bold),
-      ),
-    ],
-  );
-}
+    );
+  }

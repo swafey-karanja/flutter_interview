@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-// ignore: use_key_in_widget_constructors
 class TransactionListWidget extends StatelessWidget {
+  const TransactionListWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -14,38 +15,38 @@ class TransactionListWidget extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(right: size.width * 0.02), // Add right margin
-                    child: _buildTransactionItem(
-                      transactionName: 'Transaction 1',
-                      name: 'Jack Reacher',
-                      cardNumber: '**** **** **** 6583',
-                      imageUrl: 'https://images.unsplash.com/photo-1521566652839-697aa473761a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D',
-                      size: size,
-                    ),
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(right: size.width * 0.02),
+                  child: _buildTransactionItem(
+                    transactionName: 'Transaction 1',
+                    name: 'Jack Reacher',
+                    cardNumber: '**** **** **** 6583',
+                    imagePath: 'images/jack_reacher.jpg',
+                    size: size,
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(right: size.width * 0.02), // Add right margin
-                    child: _buildTransactionItem(
-                      transactionName: 'Transaction 1',
-                      name: 'Uchiha Itachi',
-                      cardNumber: '**** **** **** 4987',
-                      imageUrl: 'https://images.unsplash.com/photo-1541911087797-f89237bd95d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA3fHxwZXJzb258ZW58MHx8MHx8fDA%3D',
-                      size: size,
-                    ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(right: size.width * 0.02),
+                  child: _buildTransactionItem(
+                    transactionName: 'Transaction 2',
+                    name: 'Uchiha Itachi',
+                    cardNumber: '**** **** **** 4987',
+                    imagePath: 'images/uchiha_itachi.jpg',
+                    size: size,
                   ),
-                    Padding(
-                    padding: EdgeInsets.only(right: size.width * 0.02), // Add right margin
-                    child: _buildTransactionItem(
-                      transactionName: 'Transaction 1',
-                      name: 'Light Yagami',
-                      cardNumber: '**** **** **** 5020',
-                      imageUrl: 'https://plus.unsplash.com/premium_photo-1689551670902-19b441a6afde?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTIxfHxwZXJzb258ZW58MHx8MHx8fDA%3D',
-                      size: size,
-                    ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(right: size.width * 0.02),
+                  child: _buildTransactionItem(
+                    transactionName: 'Transaction 3',
+                    name: 'Light Yagami',
+                    cardNumber: '**** **** **** 5020',
+                    imagePath: 'images/light_yagami.jpg',
+                    size: size,
                   ),
-                ],
+                ),
+              ],
             ),
           ),
         ),
@@ -53,35 +54,35 @@ class TransactionListWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildSearchIcon( Size size) {
+  Widget _buildSearchIcon(Size size) {
     return Padding(
-      padding: EdgeInsets.only(top: size.height * 0.005, right: size.width * 0.02), // Add top and right margin
+      padding: EdgeInsets.only(top: size.height * 0.005, right: size.width * 0.02),
       child: Container(
-        padding: EdgeInsets.all(size.width * 0.02), // Padding inside the container
+        padding: EdgeInsets.all(size.width * 0.02),
         decoration: BoxDecoration(
-          color: Colors.grey[200], // Gray background color
-          shape: BoxShape.circle, // Circular shape
+          color: Colors.grey[200],
+          shape: BoxShape.circle,
           border: Border.all(
-            color: Colors.transparent, // No visible border color
-            width: 2.0, // Border width
+            color: Colors.transparent,
+            width: 2.0,
           ),
         ),
         child: Icon(
-          Icons.search, 
-          color: Colors.blue, 
+          Icons.search,
+          color: Colors.blue,
           size: size.width * 0.09,
         ),
       ),
     );
   }
 
-  Widget _buildTransactionItem({ 
-    required String transactionName, 
-    required String name, 
+  Widget _buildTransactionItem({
+    required String transactionName,
+    required String name,
     required String cardNumber,
-    required String imageUrl,
+    required String imagePath, // Changed from imageUrl to imagePath
     required Size size,
-   }) {
+  }) {
     return Container(
       margin: EdgeInsets.only(bottom: size.height * 0.01),
       padding: EdgeInsets.all(size.width * 0.03),
@@ -108,7 +109,7 @@ class TransactionListWidget extends StatelessWidget {
               color: Colors.grey[300],
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: NetworkImage(imageUrl), 
+                image: AssetImage(imagePath), // Use AssetImage here
               ),
             ),
           ),
@@ -118,7 +119,7 @@ class TransactionListWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                name, 
+                name,
                 style: TextStyle(
                   fontSize: size.width * 0.034,
                   fontWeight: FontWeight.bold,

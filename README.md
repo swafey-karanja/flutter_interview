@@ -86,9 +86,3 @@ This project uses the following dependencies:
 Check the `pubspec.yaml` file for more details.
 
 ```
-
-### Next Steps:
-1. Review the above `README.md` content.
-2. If you're happy with it, I can assist you in saving this to your repository.
-
-Let me know if you'd like to proceed!

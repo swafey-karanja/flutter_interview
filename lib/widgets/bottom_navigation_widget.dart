@@ -29,22 +29,22 @@ class BottomNavigationWidget extends StatelessWidget {
               _buildBottomNavigationBarItem(
                 icon: Icons.home,
                 label: 'Home',
-                padding: const EdgeInsets.only(right: 8.0), // Apply margin here
+                padding: const EdgeInsets.only(right: 8.0), 
               ),
               _buildBottomNavigationBarItem(
                 icon: Icons.bar_chart,
                 label: 'Stats',
-                padding: const EdgeInsets.only(right: 20.0), // Apply margin here
+                padding: const EdgeInsets.only(right: 20.0), 
               ),
               _buildBottomNavigationBarItem(
                 icon: Icons.person,
                 label: 'Profile',
-                padding: const EdgeInsets.only(left: 20.0), // Apply margin here
+                padding: const EdgeInsets.only(left: 20.0), 
               ),
               _buildBottomNavigationBarItem(
                 icon: Icons.credit_card,
                 label: 'Cards',
-                padding: const EdgeInsets.only(left: 8.0), // Apply margin here
+                padding: const EdgeInsets.only(left: 8.0), 
               ),
             ],
             selectedItemColor: Colors.blue,

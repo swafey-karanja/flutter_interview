@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 class TransactionListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        _buildSearchIcon(),
+        _buildSearchIcon(size),
         Expanded(
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
@@ -15,30 +16,33 @@ class TransactionListWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(right: 10.0), // Add right margin
+                    padding: EdgeInsets.only(right: size.width * 0.02), // Add right margin
                     child: _buildTransactionItem(
                       transactionName: 'Transaction 1',
                       name: 'Jack Reacher',
                       cardNumber: '**** **** **** 6583',
                       imageUrl: 'https://images.unsplash.com/photo-1521566652839-697aa473761a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D',
+                      size: size,
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 10.0), // Add right margin
+                    padding: EdgeInsets.only(right: size.width * 0.02), // Add right margin
                     child: _buildTransactionItem(
                       transactionName: 'Transaction 1',
                       name: 'Uchiha Itachi',
                       cardNumber: '**** **** **** 4987',
                       imageUrl: 'https://images.unsplash.com/photo-1541911087797-f89237bd95d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA3fHxwZXJzb258ZW58MHx8MHx8fDA%3D',
+                      size: size,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 10.0), // Add right margin
+                    Padding(
+                    padding: EdgeInsets.only(right: size.width * 0.02), // Add right margin
                     child: _buildTransactionItem(
                       transactionName: 'Transaction 1',
                       name: 'Light Yagami',
                       cardNumber: '**** **** **** 5020',
                       imageUrl: 'https://plus.unsplash.com/premium_photo-1689551670902-19b441a6afde?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTIxfHxwZXJzb258ZW58MHx8MHx8fDA%3D',
+                      size: size,
                     ),
                   ),
                 ],
@@ -49,11 +53,11 @@ class TransactionListWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildSearchIcon() {
+  Widget _buildSearchIcon( Size size) {
     return Padding(
-      padding: const EdgeInsets.only(top: 4.0, right: 8.0), // Add top and right margin
+      padding: EdgeInsets.only(top: size.height * 0.005, right: size.width * 0.02), // Add top and right margin
       child: Container(
-        padding: const EdgeInsets.all(8.0), // Padding inside the container
+        padding: EdgeInsets.all(size.width * 0.02), // Padding inside the container
         decoration: BoxDecoration(
           color: Colors.grey[200], // Gray background color
           shape: BoxShape.circle, // Circular shape
@@ -62,10 +66,10 @@ class TransactionListWidget extends StatelessWidget {
             width: 2.0, // Border width
           ),
         ),
-        child: const Icon(
+        child: Icon(
           Icons.search, 
           color: Colors.blue, 
-          size: 35,
+          size: size.width * 0.09,
         ),
       ),
     );
@@ -76,10 +80,11 @@ class TransactionListWidget extends StatelessWidget {
     required String name, 
     required String cardNumber,
     required String imageUrl,
+    required Size size,
    }) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 10),
-      padding: const EdgeInsets.all(16),
+      margin: EdgeInsets.only(bottom: size.height * 0.01),
+      padding: EdgeInsets.all(size.width * 0.03),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
@@ -96,35 +101,35 @@ class TransactionListWidget extends StatelessWidget {
         children: [
           // Profile photo circle
           Container(
-            width: 40,
-            height: 40,
+            width: size.width * 0.1,
+            height: size.width * 0.1,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: Colors.grey[300],
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: NetworkImage(imageUrl), // Replace with actual image URL
+                image: NetworkImage(imageUrl), 
               ),
             ),
           ),
-          const SizedBox(width: 12), // Space between photo and text
+          SizedBox(width: size.width * 0.03), // Space between photo and text
           // Name and card number
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                name, // Replace with actual name
-                style: const TextStyle(
-                  fontSize: 16,
+                name, 
+                style: TextStyle(
+                  fontSize: size.width * 0.034,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
                 ),
               ),
-              const SizedBox(height: 4), // Space between name and card number
+              SizedBox(height: size.height * 0.005),
               Text(
-                cardNumber, // Replace with actual card number
+                cardNumber,
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: size.width * 0.032,
                   color: Colors.grey[600],
                 ),
               ),

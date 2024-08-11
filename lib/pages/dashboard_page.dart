@@ -22,127 +22,141 @@ class _DashboardContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<DashboardProvider>(context);
+    final size = MediaQuery.of(context).size;
     final double bottomBarHeight = MediaQuery.of(context).size.height * 0.12;
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Good Evening,',
-                style: TextStyle(
-                  fontSize: 14, // Adjust the font size as needed
-                  color: Colors.grey, // Adjust the color as needed
-                ),
+      appBar: AppBar(
+        title: const Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Good Evening,',
+              style: TextStyle(
+                fontSize: 14, 
+                color: Colors.grey, 
               ),
-              Text(
-                'King Crimson',
-                style: AppStyles.appBarTitleStyle,
-              ),
-            ],
-          ),
-          backgroundColor: Colors.white,
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.notifications),
-              onPressed: () {
-                // Handle notifications tap
-              },
             ),
-            IconButton(
-              icon: const Icon(Icons.history),
-              onPressed: () {
-                // Handle history tap
-              },
+            Text(
+              'King Crimson',
+              style: AppStyles.appBarTitleStyle,
             ),
           ],
         ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const CarouselSliderWidget(),
-                const SizedBox(height: 30),
-                icon_grid.IconGridWidget(),
-                const SizedBox(height: 20),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Text('Send Again', style: AppStyles.sectionTitleStyle),
-                ),
-                const SizedBox(height: 20),
-                TransactionListWidget(),
-                const SizedBox(height: 10),
-                // Various Buttons Section
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween, // Distribute space between elements
-                    children: [
-                      Text('Savings', style: AppStyles.sectionTitleStyle),
-                      Text('Create new', style: AppStyles.linkStyles),
-                    ],
-                  ),
-                ),
-                GridView.count(
-                  shrinkWrap: true,
-                  crossAxisCount: 3,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
+        backgroundColor: Colors.white,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.notifications),
+            onPressed: () {
+              // Handle notifications tap
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.history),
+            onPressed: () {
+              // Handle history tap
+            },
+          ),
+        ],
+      ),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
+              child: Padding(
+                padding: EdgeInsets.all(size.width * 0.04),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _buildIconWithContainer(Icons.local_offer, 'Offer', Colors.greenAccent),
-                    _buildIconWithContainer(Icons.shopping_cart, 'Cart', Colors.blueAccent),
-                    _buildIconWithContainer(Icons.receipt, 'Receipt', Colors.redAccent),
-                    _buildIconWithContainer(Icons.account_balance_wallet, 'Wallet', Colors.cyanAccent),
-                    _buildIconWithContainer(Icons.support_agent, 'Support', Colors.limeAccent),
-                    _buildIconWithContainer(Icons.money, 'Bank', const Color(0xFF07D888)),
+                    CarouselSliderWidget(height: size.height * 0.25),
+                    SizedBox(height: size.height * 0.03),
+                    icon_grid.IconGridWidget(),
+                    const SizedBox(height: 20),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Text('Send Again', style: AppStyles.sectionTitleStyle),
+                    ),
+                    const SizedBox(height: 20),
+                    TransactionListWidget(),
+                    const SizedBox(height: 10),
+                    // Various Buttons Section
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween, // Distribute space between elements
+                        children: [
+                          Text('Savings', style: AppStyles.sectionTitleStyle),
+                          Text('Create new', style: AppStyles.linkStyles),
+                        ],
+                      ),
+                    ),
+                    GridView.count(
+                      shrinkWrap: true,
+                      crossAxisCount: 3,
+                      crossAxisSpacing: 5,
+                      mainAxisSpacing: 10,
+                      children: [
+                        _buildIconWithContainer(Icons.local_offer, 'Offer', Colors.greenAccent),
+                        _buildIconWithContainer(Icons.shopping_cart, 'Cart', Colors.blueAccent),
+                        _buildIconWithContainer(Icons.receipt, 'Balance', Colors.redAccent),
+                        _buildIconWithContainer(Icons.account_balance_wallet, 'Wallet', Colors.cyanAccent),
+                        _buildIconWithContainer(Icons.support_agent, 'Agent', Colors.limeAccent),
+                        _buildIconWithContainer(Icons.money, 'Money', const Color(0xFF07D888)),
+                      ],
+                    )
                   ],
-                )
-              ],
+                )     
+              ),
             ),
+          );
+        },
+      ),
+      floatingActionButton: SizedBox(
+        height: 50.0,
+        width: 50.0,
+        child: FittedBox(
+          child: FloatingActionButton(
+            onPressed: () => _showBottomSheet(context),
+            backgroundColor: Colors.blue,
+            child: const Icon(Icons.add),
           ),
         ),
-        floatingActionButton: SizedBox(
-          height: 50.0,
-          width: 50.0,
-          child: FittedBox(
-            child: FloatingActionButton(
-              onPressed: () => _showBottomSheet(context),
-              backgroundColor: Colors.blue,
-              child: const Icon(Icons.add),
-            ),
-          ),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: BottomNavigationWidget(
-          selectedIndex: provider.selectedIndex,
-          onItemTapped: (index) => provider.updateSelectedIndex(index),
-          bottomBarHeight: bottomBarHeight,
-        ),
-      );  }
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomNavigationWidget(
+        selectedIndex: provider.selectedIndex,
+        onItemTapped: (index) => provider.updateSelectedIndex(index),
+        bottomBarHeight: bottomBarHeight,
+      ), 
+    );
+  }
 
   Widget _buildIconWithContainer(IconData icon, String label, Color iconColor) {
-  return Container(
-    padding: const EdgeInsets.all(14.0), // Padding inside the container
-    margin: const EdgeInsets.all(8.0), // Margin between containers
-    decoration: BoxDecoration(
-      color: Colors.white, // Background color of the container
-      borderRadius: BorderRadius.circular(12.0), // Border radius for rounded corners
-      boxShadow: const [
-        BoxShadow(
-          color: Colors.black26,
-          blurRadius: 4.0,
-          offset: Offset(0, 2),
-        ),
-      ],
-    ),
-    child: SingleChildScrollView(
-      child: icon_grid.buildIconWithLabel(icon, label, iconColor),
-    ),
-  );
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final size = MediaQuery.of(context).size;
+        return Container(
+          padding: EdgeInsets.all(size.width * 0.03),
+          margin: EdgeInsets.all(size.width * 0.02),
+          decoration: BoxDecoration(
+            color: Colors.white, // Background color of the container
+            borderRadius: BorderRadius.circular(12.0), // Border radius for rounded corners
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.black26,
+                blurRadius: 4.0,
+                offset: Offset(0, 2),
+              ),
+            ],
+          ),
+          child: SingleChildScrollView(
+            child: icon_grid.buildIconWithLabel(icon, label, iconColor, size),
+          ),
+        );
+      }  
+    );
   }
 
   void _showBottomSheet(BuildContext context) {
@@ -168,7 +182,7 @@ class _DashboardContent extends StatelessWidget {
               GridView.count(
                 shrinkWrap: true,
                 crossAxisCount: 3,
-                crossAxisSpacing: 10,
+                crossAxisSpacing: 5,
                 mainAxisSpacing: 10,
                 children: [
                   _buildIconWithContainer(Icons.mobile_friendly, 'Mobile', Colors.greenAccent),

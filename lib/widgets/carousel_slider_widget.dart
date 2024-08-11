@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class CarouselSliderWidget extends StatefulWidget {
-  const CarouselSliderWidget({super.key});
+  final double height;
+
+  const CarouselSliderWidget({super.key, required this.height});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -14,17 +16,18 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Column(
       children: [
         CarouselSlider(
           items: [
-            _buildCarouselItem('https://www.visa.co.in/dam/VCOM/regional/ap/india/global-elements/images/in-visa-classic-card-498x280.png'),
-            _buildCarouselItem('https://www.visa.co.in/dam/VCOM/regional/ap/india/global-elements/images/in-visa-platinum-card-498x280.png'),
-            _buildCarouselItem('https://www.visa.co.in/dam/VCOM/regional/ap/india/global-elements/images/in-visa-infinite-card-498x280.png'),
+            _buildCarouselItem('https://www.visa.co.in/dam/VCOM/regional/ap/india/global-elements/images/in-visa-classic-card-498x280.png', size),
+            _buildCarouselItem('https://www.visa.co.in/dam/VCOM/regional/ap/india/global-elements/images/in-visa-platinum-card-498x280.png', size),
+            _buildCarouselItem('https://www.visa.co.in/dam/VCOM/regional/ap/india/global-elements/images/in-visa-infinite-card-498x280.png', size),
           ],
           options: CarouselOptions(
             aspectRatio: 16 / 9,
-            height: MediaQuery.of(context).size.height * 0.25,
+            height: widget.height,
             autoPlay: false,
             enlargeCenterPage: true,
             viewportFraction: 1.0,
@@ -41,9 +44,9 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
     );
   }
 
-  Widget _buildCarouselItem(String imageUrl) {
+  Widget _buildCarouselItem(String imageUrl, Size size) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(16.0),
+      borderRadius: BorderRadius.circular(size.width * 0.04),
       child: Image.network(
         imageUrl,
         fit: BoxFit.cover,

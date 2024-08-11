@@ -1,37 +1,94 @@
-# 📱 Flutter Page Creation & State Management
+# Flutter Interview Project
 
-Welcome to the Flutter Page Creation & State Management task! This task is designed to assess your ability to create a well-structured Flutter page, manage state effectively, and ensure a smooth user experience with a focus on UX/UI.
+This Flutter project is a demonstration of various features and components commonly used in Flutter applications. It includes state management, custom widgets, and responsive UI design.
 
-## 📝 Task Overview
+## Table of Contents
 
-Your objective is to:
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [File Structure](#file-structure)
+- [Dependencies](#dependencies)
+- [Contributing](#contributing)
+- [License](#license)
 
-- Create a public fork of the repository.
-- Build the dashboard page with the bottom modal sheet as per the provided design but in light mode.
-- Implement state management to handle page interactions and data flow.
-- Ensure a clean and organized folder structure.
-- Focus on delivering an intuitive and polished user interface.
+## Project Overview
 
-## 📂Screenshots for reference
+The project showcases a dashboard interface with a carousel slider, icon grid, transaction list, and bottom navigation. The state management is handled using the `provider` package.
 
-![home_page 1](images/home_page_2.png)![home_page 2](images/home_page.png)![bottom sheet](images/modal_sheet.png)
+## Features
 
-## 🔍 Assessment Criteria
+- **Dashboard Page**: Includes a carousel slider, icon grid, and transaction list.
+- **State Management**: Managed using the `provider` package.
+- **Custom Widgets**: Several custom widgets are implemented, including the bottom navigation bar, carousel slider, and more.
+- **Responsive UI**: The UI components are responsive to different screen sizes.
 
-Your task will be assessed based on:
+## Installation
 
-1. **State Management**: Efficient use of state management techniques (e.g., Provider, Riverpod, Bloc, etc.).
-2. **Folder Structure**: Clean and organized folder structure that follows best practices.
-3. **UX/UI**: Attention to detail in the design, ensuring a user-friendly and visually appealing interface.
-4. **Code Quality**: Modular, readable, and maintainable code.
+To run this project locally, follow these steps:
 
-## 💡 Tips for Success
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/swafey-karanja/flutter_interview.git
+   cd flutter_interview
+   ```
 
-- Choose the state management approach that best fits the task requirements.
-- Keep your folder structure logical and easy to navigate.
-- Ensure your UI is responsive and works well on different screen sizes.
-- Write clear and maintainable code with proper documentation.
+2. **Install dependencies**:
+   ```bash
+   flutter pub get
+   ```
 
-## 📬 Contact
+3. **Run the project**:
+   ```bash
+   flutter run
+   ```
 
-For any questions or clarifications, feel free to reach out via [muinde@vesencomputing.com](mailto:muinde@vesencomputing.com).
+## Usage
+
+Once the project is running, you will be presented with a dashboard interface that includes:
+
+- A carousel slider for displaying images.
+- An icon grid with options like Transfer, Withdraw, and Topup.
+- A transaction list that displays recent transactions.
+
+You can interact with the bottom navigation to switch between different sections of the app.
+
+## File Structure
+
+Here’s a brief overview of the key files in the project:
+
+```plaintext
+lib/
+├── main.dart                  # Main entry point of the Flutter app
+├── pages/
+│   └── dashboard_page.dart    # Dashboard UI implementation
+├── providers/
+│   └── dashboard_provider.dart # State management for the dashboard
+├── utils/
+│   └── constants.dart         # Common constants like text styles
+├── widgets/
+│   ├── bottom_navigation_widget.dart  # Custom bottom navigation bar
+│   ├── carousel_slider_widget.dart    # Carousel slider for images
+│   ├── icon_grid_widget.dart          # Grid layout for action icons
+│   └── transaction_list_widget.dart   # Transaction list widget
+pubspec.yaml                  # Project dependencies and configuration
+```
+
+## Dependencies
+
+This project uses the following dependencies:
+
+- **Flutter SDK**: The core framework.
+- **Provider**: State management.
+- **Carousel Slider**: For creating the image slider.
+
+Check the `pubspec.yaml` file for more details.
+
+```
+
+### Next Steps:
+1. Review the above `README.md` content.
+2. If you're happy with it, I can assist you in saving this to your repository.
+
+Let me know if you'd like to proceed!

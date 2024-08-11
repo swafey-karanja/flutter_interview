@@ -25,7 +25,7 @@ The project showcases a dashboard interface with a carousel slider, icon grid, t
 - **Custom Widgets**: Several custom widgets are implemented, including the bottom navigation bar, carousel slider, and more.
 - **Responsive UI**: The UI components are responsive to different screen sizes.
 
-##Requirements
+## Requirements
 1. Android studio.
 2. Visual studio IDE(optional)
 3. Virtual device or physical device

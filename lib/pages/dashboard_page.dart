@@ -26,7 +26,23 @@ class _DashboardContent extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-          title: const Text('King Crimson', style: AppStyles.appBarTitleStyle),
+          title: const Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Good Evening,',
+                style: TextStyle(
+                  fontSize: 14, // Adjust the font size as needed
+                  color: Colors.grey, // Adjust the color as needed
+                ),
+              ),
+              Text(
+                'King Crimson',
+                style: AppStyles.appBarTitleStyle,
+              ),
+            ],
+          ),
           backgroundColor: Colors.white,
           actions: [
             IconButton(

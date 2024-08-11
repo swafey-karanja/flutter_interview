@@ -11,8 +11,6 @@ This Flutter project is a demonstration of various features and components commo
 - [Usage](#usage)
 - [File Structure](#file-structure)
 - [Dependencies](#dependencies)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Project Overview
 

@@ -6,6 +6,7 @@ This Flutter project is a demonstration of various features and components commo
 
 - [Project Overview](#project-overview)
 - [Features](#features)
+- [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
 - [File Structure](#file-structure)
@@ -24,6 +25,13 @@ The project showcases a dashboard interface with a carousel slider, icon grid, t
 - **Custom Widgets**: Several custom widgets are implemented, including the bottom navigation bar, carousel slider, and more.
 - **Responsive UI**: The UI components are responsive to different screen sizes.
 
+##Requirements
+1. Android studio.
+2. Visual studio IDE(optional)
+3. Virtual device or physical device
+4. The latest stable version of flutter and dart.
+5. Windows 10 or higher.
+
 ## Installation
 
 To run this project locally, follow these steps:
@@ -38,8 +46,13 @@ To run this project locally, follow these steps:
    ```bash
    flutter pub get
    ```
+3. **Check that all requirements are satisfied.**
+    ```bash
+   flutter doctor
+   ```
+5. **Start a virtual device on android studio or connect a physical device**
 
-3. **Run the project**:
+6. **Run the project**:
    ```bash
    flutter run
    ```
@@ -51,6 +64,8 @@ Once the project is running, you will be presented with a dashboard interface th
 - A carousel slider for displaying images.
 - An icon grid with options like Transfer, Withdraw, and Topup.
 - A transaction list that displays recent transactions.
+- A bottom modal sheet that displays more services that the user can access.
+- A floating action button that opens the bottom modal sheet.
 
 You can interact with the bottom navigation to switch between different sections of the app.
 

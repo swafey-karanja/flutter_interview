@@ -100,4 +100,3 @@ This project uses the following dependencies:
 
 Check the `pubspec.yaml` file for more details.
 
-```

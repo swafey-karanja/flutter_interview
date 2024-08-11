@@ -100,6 +100,8 @@ This project uses the following dependencies:
 Check the `pubspec.yaml` file for more details.
 
 ## Screenshots
+The screenshots below are of a virtual device that I used to visualise the development process.
+
 ![image](https://github.com/user-attachments/assets/753c64e0-d07b-4bf9-b267-59c730f454a3)
 ![image](https://github.com/user-attachments/assets/d7bfccb7-e2b8-4940-9e94-3cd8dad1c0f1)
 ![image](https://github.com/user-attachments/assets/dcc72b93-3b48-4d39-ae53-9db296e26104)
